@@ -2,11 +2,17 @@ namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
+        public Estacionamento(decimal precoInicial, decimal precoPorHora)
+        {
+            PrecoInicial = precoInicial;
+            PrecoPorHora = precoPorHora;
+        }
+
         private decimal _precoInicial = 0;
         private decimal _precoPorHora = 0;
         private List<string> _veiculos = new List<string>();
 
-        public decimal precoInicial
+        public decimal PrecoInicial
         {
             get => _precoInicial;
             set
@@ -21,7 +27,7 @@ namespace DesafioFundamentos.Models
                 }
             }
         }
-        public decimal precoPorHora
+        public decimal PrecoPorHora
         {
             get => _precoPorHora;
             set
@@ -35,12 +41,6 @@ namespace DesafioFundamentos.Models
                     throw new ArgumentException("Preço por hora inválido!");
                 }
             }
-        }
-
-        public Estacionamento(decimal precoInicial, decimal precoPorHora)
-        {
-            this._precoInicial = precoInicial;
-            this._precoPorHora = precoPorHora;
         }
 
         public void AdicionarVeiculo()
@@ -68,7 +68,7 @@ namespace DesafioFundamentos.Models
                 {
                     Console.WriteLine("Digite a quantidade de horas da estádia no estacionamento:");
                     int horas = Convert.ToInt16(Console.ReadLine());
-                    
+
                     decimal valorTotal = _precoInicial + (_precoPorHora * horas);
                     _veiculos.Remove(placa);
 
