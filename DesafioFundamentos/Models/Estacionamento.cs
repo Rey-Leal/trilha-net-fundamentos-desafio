@@ -68,8 +68,10 @@ namespace DesafioFundamentos.Models
                 {
                     Console.WriteLine("Digite a quantidade de horas da estádia no estacionamento:");
                     int horas = Convert.ToInt16(Console.ReadLine());
+                    
                     decimal valorTotal = _precoInicial + (_precoPorHora * horas);
                     _veiculos.Remove(placa);
+
                     Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
                 }
                 else
