@@ -4,7 +4,7 @@ namespace DesafioFundamentos.Models
     {
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        public List<string> veiculos = new List<string>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
@@ -57,19 +57,19 @@ namespace DesafioFundamentos.Models
             try
             {
                 int contador = 1;
-
-                // Verifica se há veículos no estacionamento
+                
                 if (veiculos.Any())
                 {
                     Console.WriteLine("Listagem de veículos estacionados:");
                     foreach (var veiculo in veiculos)
                     {
-                        Console.WriteLine($"{contador.ToString("D3")} {veiculo.ToString()}");
+                        Console.WriteLine($"{contador.ToString("D2")} {veiculo.ToString()}");
+                        contador++;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Não há veículos estacionados.");
+                    Console.WriteLine("Não existem veículos estacionados.");
                 }
             }
             catch (Exception ex)
@@ -77,5 +77,23 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public bool ExistemVeiculos()
+        {
+            try
+            {                
+                if (veiculos.Any())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
     }
 }

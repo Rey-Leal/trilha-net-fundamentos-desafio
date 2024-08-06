@@ -14,7 +14,7 @@ Console.WriteLine("Valor por hora estacionada:");
 precoPorHora = Convert.ToDecimal(Console.ReadLine());
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
-Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
+Estacionamento estacionamento = new Estacionamento(precoInicial, precoPorHora);
 
 string opcao = string.Empty;
 bool exibirMenu = true;
@@ -25,22 +25,27 @@ while (exibirMenu)
     Console.Clear();
     Console.WriteLine("Digite a sua opção:");
     Console.WriteLine("1 - Entrada de veículo");
-    Console.WriteLine("2 - Saída de veículo");
-    Console.WriteLine("3 - Listagem de veículos estacionados");
+    // Mostra menus apenas se existir cadastros
+    if (estacionamento.ExistemVeiculos())
+    {
+        Console.WriteLine("2 - Saída de veículo");
+        Console.WriteLine("3 - Listagem de veículos estacionados");
+    }
     Console.WriteLine("4 - Encerrar aplicação");
 
     switch (Console.ReadLine())
     {
         case "1":
-            es.AdicionarVeiculo();
+            estacionamento.AdicionarVeiculo();
             break;
 
         case "2":
-            es.RemoverVeiculo();
+            estacionamento.ListarVeiculos();
+            estacionamento.RemoverVeiculo();
             break;
 
         case "3":
-            es.ListarVeiculos();
+            estacionamento.ListarVeiculos();
             break;
 
         case "4":
