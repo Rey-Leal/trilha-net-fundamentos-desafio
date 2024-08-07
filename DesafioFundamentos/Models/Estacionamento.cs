@@ -8,8 +8,8 @@ namespace DesafioFundamentos.Models
             PrecoPorHora = precoPorHora;
         }
 
-        private decimal _precoInicial = 0;
-        private decimal _precoPorHora = 0;
+        private decimal _precoInicial;
+        private decimal _precoPorHora;
         private List<string> _veiculos = new List<string>();
 
         public decimal PrecoInicial
